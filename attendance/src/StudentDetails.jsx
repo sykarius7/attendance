@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import dummyData from "./dummyData";
+import { useStudentDataContext } from "./StudentDataContext"; // Import the StudentDataContext
 import { useUsnContext } from "./UsnContext";
 import "./StudentDetails.css";
 import { useNavigate } from "react-router-dom";
@@ -10,11 +10,12 @@ export default function StudentDetails() {
   }
   const navigate = useNavigate();
   const { usn } = useUsnContext();
+  const { studentData } = useStudentDataContext(); // Use the studentData from context
   const [studentInfo, setStudentInfo] = useState(null);
 
   useEffect(() => {
     const findStudentByUSN = () => {
-      const student = dummyData.find((student) => student.usn === usn);
+      const student = studentData.find((student) => student.usn === usn); // Use studentData instead of dummyData
       if (student) {
         setStudentInfo(student);
       } else {
@@ -23,7 +24,7 @@ export default function StudentDetails() {
     };
 
     findStudentByUSN();
-  }, [usn]);
+  }, [usn, studentData]); // Include studentData in the dependency array
 
   return (
     <div className="student-details-container">

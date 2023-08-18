@@ -59,3 +59,24 @@
 .exit-button:hover {
   background-color: darkred;
 }
+.upload-button {
+  padding: 10px 20px;
+  background-color: rgb(20, 150, 244);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  font-size: 17px;
+  z-index: 3;
+  left: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: rgb(17, 86, 139);
+}
+.excel {
+  color: red;
+}
